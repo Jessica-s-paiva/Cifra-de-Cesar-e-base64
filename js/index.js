@@ -13,9 +13,9 @@ cifraDeCesar()
 
 function criptografar(){
     for(var i = 0; i < cesar.length; i++){
-        criptMensagem.push(cesar.fromCharCode(i));
+        cesar.push(String.fromCharCode(i));
     }
-    return criptMensagem;
+    return cesar;
 }
 
 criptografar()
