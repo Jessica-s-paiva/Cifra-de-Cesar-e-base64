@@ -8,29 +8,38 @@
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
-    <form action="">
 
-        <label for="frase">Digite a mensagem que deseja criptografar:</label>
-        <input type="text" id="frase">
+    <header>
 
-        <input type="checkbox" id="cifra" name="escolha">
-        <label for="cifra">Cifra de Cesar</label>
-        <input type="checkbox" id= "base64" name="escolha">
-        <label for="base64">Base 64</label>
+    </header>
 
-        <div id="incremento"></div>
+    <main>
+        <form>
+            <label for="frase">Digite a mensagem que deseja criptografar:</label>
+            <input type="text" id="frase">
+    
+            <input type="checkbox" id="cifra" name="escolha">
+            <label for="cifra">Cifra de Cesar</label>
+            <input type="checkbox" id= "base64" name="escolha">
+            <label for="base64">Base 64</label>
+    
+            <div id="incremento"></div> <!-- Lugar onde vai aparecer input para o incremento-->
+    
+            <input type="radio" id= "cod" name="escolha-cod">
+            <label for="cod">Codificar</label>
+            <input type="radio" id= "decod" name="escolha-cod">
+            <label for="cod">Decodificar</label>
+    
+            <input type="button" value="Iniciar">
+    
+            <div id="codificacao"></div><!-- lugar onde vai aparecer a frase criptografada-->
+        </form>
+    </main>
 
-        <input type="radio" id= "cod" name="escolha-cod">
-        <label for="cod">Codificar</label>
-        <input type="radio" id= "decod" name="escolha-cod">
-        <label for="cod">Decodificar</label>
-
-        <input type="button" value="Iniciar">
-
-        <div id="codificacao"></div>
-
-
-    </form>
+    <footer>
+        
+    </footer>
+    
     <script src="../js/index.js"></script>
 </body>
 </html>
