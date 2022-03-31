@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passinho do Romano xD</title>
-    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
@@ -19,17 +19,19 @@
             <label for="frase">Digite a mensagem que deseja criptografar:</label>
             <input type="text" id="frase">
     
-            <input type="checkbox" id="cifra" name="escolha">
-            <label for="cifra">Cifra de Cesar</label>
-            <input type="checkbox" id= "base64" name="escolha">
-            <label for="base64">Base 64</label>
+            <label for="cifra"><input type="checkbox" id="cifra" name="escolha">
+            Cifra de Cesar</label>
+            <label for="base64"><input type="checkbox" id= "base64" name="escolha">
+            Base 64</label>
     
             <div id="incrementando"></div> <!-- Lugar onde vai aparecer input para o incremento-->
     
-            <input type="radio" id= "cod" name="escolha-cod">
-            <label for="cod">Codificar</label>
-            <input type="radio" id= "decod" name="escolha-cod">
-            <label for="cod">Decodificar</label>
+            <label for="cod"><input type="radio" id= "cod" name="escolha-cod">
+            Codificar</label>
+            <label for="decod"><input type="radio" id= "decod" name="escolha-cod">
+            Decodificar</label>
+
+            <div id="mensagem"></div>
     
             <input type="button" value="Iniciar">
     
