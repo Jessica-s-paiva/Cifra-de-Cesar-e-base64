@@ -1,8 +1,6 @@
 var cesar = [];
 var criptMensagem = [];
 function cifraDeCesar(){
-    var mensagem = 'oi';
-    var incremento = 3;
     for(var i = 0; i < mensagem.length; i++){
         cesar.push(mensagem.charCodeAt(i) + incremento);
     }
