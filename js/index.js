@@ -6,6 +6,7 @@ var mensagem = document.querySelector('#mensagem')
 var iniciar = document.querySelector('#iniciar')
 var codificacao = document.querySelector('#codificacao')
 var cifraCodificar = [];
+var codificandoCesar = [];
 
 cifra.addEventListener('click', function (event) {
     event.preventDefault();
@@ -24,17 +25,26 @@ radio2.addEventListener('click', function (event) {
 
 iniciar.addEventListener('click', function (event) {
     event.preventDefault();
-    var frase = document.querySelector('#frase')
-    var caracteres = frase.value;
-    var incremento = document.querySelector('#incremento')
-    var inc = incremento.value;
-    console.log(caracteres);
-    console.log(inc);
+    cifraDeCesar();
+    codificaCesar();
+    console.log(cifraCodificar);
+    console.log(codificandoCesar);
 })
 
-function cifraDeCesar(caracteres){
+function cifraDeCesar(){
+    var frase = document.querySelector('#frase')
+    var incremento = document.querySelector('#incremento')
+    var caracteres = frase.value;
+    var inc = incremento.value;
     for (var i = 0; i < caracteres.length; i++) {
-        cifraCodificar.push(caracteres.charCodeAt(i) + incremento);   
+        cifraCodificar.push(caracteres.charCodeAt(i) + parseInt(inc));   
     }
-    return cifraCodificar
+    return cifraCodificar;
+}
+
+function codificaCesar() {
+    for (var i = 0; i < cifraCodificar.length; i++) {
+        codificandoCesar.push(String.fromCharCode(cifraCodificar[i]))
+    }
+    return codificandoCesar;
 }
