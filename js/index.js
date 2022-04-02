@@ -35,21 +35,23 @@ function cifraDeCesar(){
     var incremento = document.querySelector('#incremento')
     var caracteres = frase.value;
     var inc = incremento.value;
+    var aux;
     for(var i = 0; i < caracteres.length; i++) {
+        cifraCodificar.push(caracteres.charCodeAt(i) + parseInt(inc));
         if(caracteres.charCodeAt(i) == 88){
-            caracteres.charCodeAt(i) = 65;
-            var aux = 23;
+            cifraCodificar[i] = 67 + parseInt(inc);
+            aux = 23;
         }else if(caracteres.charCodeAt(i) == 89){
-            caracteres.charCodeAt(i) = 66;
+            cifraCodificar[i] = 66 + parseInt(inc);
             aux = 23;  
-        }else if(caracteres.charCodeAt(i) == 90){
-            caracteres.charCodeAt(i) = 67;
+        }else if (caracteres.charCodeAt(i) == 90){
+            cifraCodificar[i] = 65 + parseInt(inc);
             aux = 23;  
         }else{
             aux = 0;
-        }
-        cifraCodificar.push(caracteres.charCodeAt(i) + parseInt(inc));  
+        }  
     }
+    
     return cifraCodificar;
 }
 
