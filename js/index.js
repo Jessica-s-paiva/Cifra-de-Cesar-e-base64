@@ -47,6 +47,18 @@ function cifraDeCesar(){
         }else if (caracteres.charCodeAt(i) == 90){
             cifraCodificar[i] = 65 + parseInt(inc);
             aux = 23;  
+        }else if (caracteres.charCodeAt(i) == 32){
+            cifraCodificar[i] = 32;
+            aux = 0;  
+        }else if(caracteres.charCodeAt(i) == 120){
+            cifraCodificar[i] = 99 + parseInt(inc);
+            aux = 23;  
+        }else if (caracteres.charCodeAt(i) == 121){
+            cifraCodificar[i] = 98 + parseInt(inc);
+            aux = 23;  
+        }else if (caracteres.charCodeAt(i) == 122){
+            cifraCodificar[i] = 97;
+            aux = 0;  
         }else{
             aux = 0;
         }  
