@@ -7,6 +7,7 @@ var iniciar = document.querySelector('#iniciar')
 var codificacao = document.querySelector('#codificacao')
 var cifraCodificar = [];
 var codificandoCesar = '';
+var cifraDecodificar = [];
 
 cifra.addEventListener('click', function (event) {
     event.preventDefault();
@@ -57,8 +58,8 @@ function cifraDeCesar(){
             cifraCodificar[i] = 98 + parseInt(inc);
             aux = 23;  
         }else if (caracteres.charCodeAt(i) == 122){
-            cifraCodificar[i] = 97;
-            aux = 0;  
+            cifraCodificar[i] = 97 + parseInt(inc);
+            aux = 23;  
         }else{
             aux = 0;
         }  
@@ -72,4 +73,11 @@ function codificaCesar() {
         codificandoCesar += String.fromCharCode(cifraCodificar[i])
     }
     return codificandoCesar;
+}
+
+function decodificaCesar(){
+    for(var i = 0; i < codificandoCesar.length; i++){
+        cifraDecodificar.push(codificandoCesar.charCodeAt(i) - parseInt(inc) - aux)
+    }
+    return cifraDecodificar;
 }
