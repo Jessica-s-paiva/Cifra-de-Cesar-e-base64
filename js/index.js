@@ -9,6 +9,7 @@ var cifraCodificar = [];
 var codificandoCesar = '';
 var cifraDecodificar = [];
 var aux = [];
+var decodificandoCesar = '';
 
 cifra.addEventListener('click', function (event) {
     //event.preventDefault();
@@ -35,7 +36,8 @@ iniciar.addEventListener('click', function (event) {
         cifraDeCesar();
         codificaCesar();
         decodificaCesar();
-        codificacao.innerText = cifraDecodificar;
+        decodCesar()
+        codificacao.innerText = decodificandoCesar;
     }
     
 })
@@ -88,10 +90,16 @@ function decodificaCesar(){
     var incremento = document.querySelector('#incremento')
    // var caracteres = frase.value;
     var inc = incremento.value;
-    for(var i = 0; i < codificandoCesar.length; i++){
-        console.log(aux[i]);
-        cifraDecodificar.push(codificandoCesar.charCodeAt(i) - parseInt(inc) + aux[i])
-        console.log(cifraDecodificar);
+    for(var i = 0; i < cifraCodificar.length; i++){
+        cifraDecodificar.push(cifraCodificar[i] - parseInt(inc) + aux[i])
     }
-    return cifraDecodificar;
+    return cifraDecodificar
+    
+}
+
+function decodCesar(){
+    for (var i = 0; i < cifraDecodificar.length; i++){
+        decodificandoCesar += String.fromCharCode(cifraDecodificar[i])
+    }
+    return decodificandoCesar
 }
