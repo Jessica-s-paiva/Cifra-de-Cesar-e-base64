@@ -48,11 +48,19 @@ function cifraDeCesar(){
     var caracteres = frase.value;
     var inc = incremento.value;
     for(var i = 0; i < caracteres.length; i++) {
-        if(caracteres.charCodeAt(i) + parseInt(inc) > 90 && caracteres.charCodeAt(i) + parseInt(inc) < 97){
-            cifraCodificar[i] = caracteres.charCodeAt(i) + 1;
-            aux[i] = parseInt(inc);
+        if(caracteres.charCodeAt(i) == 65 || caracteres.charCodeAt(i) == 32 || caracteres.charCodeAt(i) == 97){
+            cifraCodificar[i] = caracteres.charCodeAt(i);
+            aux[i] = 0;
+        }else if(caracteres.charCodeAt(i) + parseInt(inc) > 90 && caracteres.charCodeAt(i) + parseInt(inc) < 99){
+            cifraCodificar[i] = caracteres.charCodeAt(i) - 1;
+            aux[i] = 1;
+        }else if(caracteres.charCodeAt(i) + parseInt(inc) > 122){
+            cifraCodificar[i] = caracteres.charCodeAt(i) - 1;
+            aux[i] = 1;
+        }else{
             cifraCodificar.push(caracteres.charCodeAt(i) + parseInt(inc));
-        }   
+            aux[i] = 0;
+        } 
     }
     return cifraCodificar;
 }
@@ -70,7 +78,7 @@ function decodificaCesar(){
    // var caracteres = frase.value;
     var inc = incremento.value;
     for(var i = 0; i < cifraCodificar.length; i++){
-        cifraDecodificar.push(cifraCodificar[i] - parseInt(inc))
+        cifraDecodificar.push(cifraCodificar[i] - parseInt(inc) + aux[i])
     }
     return cifraDecodificar
 }
