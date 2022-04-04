@@ -48,33 +48,12 @@ function cifraDeCesar(){
     var caracteres = frase.value;
     var inc = incremento.value;
     for(var i = 0; i < caracteres.length; i++) {
-        cifraCodificar.push(caracteres.charCodeAt(i) + parseInt(inc));
-        if(caracteres.charCodeAt(i) == 88){
-            cifraCodificar[i] = 65 + parseInt(inc);
-            aux[i] = 23;
-        }else if(caracteres.charCodeAt(i) == 89){
-            cifraCodificar[i] = 66 + parseInt(inc);
-            aux[i] = 23;  
-        }else if (caracteres.charCodeAt(i) == 90){
-            cifraCodificar[i] = 67 + parseInt(inc);
-            aux[i] = 23;  
-        }else if (caracteres.charCodeAt(i) == 32){
-            cifraCodificar[i] = 32;
-            aux[i] = 0;  
-        }else if(caracteres.charCodeAt(i) == 120){
-            cifraCodificar[i] = 97 + parseInt(inc);
-            aux[i] = 23;  
-        }else if (caracteres.charCodeAt(i) == 121){
-            cifraCodificar[i] = 98 + parseInt(inc);
-            aux[i] = 23;  
-        }else if (caracteres.charCodeAt(i) == 122){
-            cifraCodificar[i] = 99 + parseInt(inc);
-            aux[i] = 23;  
-        }else{
-            aux[i] = 0;
-        }  
+        if(caracteres.charCodeAt(i) + parseInt(inc) > 90 && caracteres.charCodeAt(i) + parseInt(inc) < 97){
+            cifraCodificar[i] = caracteres.charCodeAt(i) + 1;
+            aux[i] = parseInt(inc);
+            cifraCodificar.push(caracteres.charCodeAt(i) + parseInt(inc));
+        }   
     }
-    
     return cifraCodificar;
 }
 
@@ -91,10 +70,9 @@ function decodificaCesar(){
    // var caracteres = frase.value;
     var inc = incremento.value;
     for(var i = 0; i < cifraCodificar.length; i++){
-        cifraDecodificar.push(cifraCodificar[i] - parseInt(inc) + aux[i])
+        cifraDecodificar.push(cifraCodificar[i] - parseInt(inc))
     }
     return cifraDecodificar
-    
 }
 
 function decodCesar(){
