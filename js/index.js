@@ -50,23 +50,20 @@ iniciar.addEventListener('click', function (event) {
 
 function cifraDeCesar(){
     var frase = document.querySelector('#frase')
-    var incremento = document.querySelector('#incremento')
     var caracteres = frase.value;
+    var incremento = document.querySelector('#incremento')
     var inc = incremento.value;
+    if(inc > 25){
+        var novoIncremento = inc % 26;
+    }
+    else{
+        novoIncremento = inc;
+    }
     for(var i = 0; i < caracteres.length; i++) {
-        if(caracteres.charCodeAt(i) == 65 || caracteres.charCodeAt(i) == 32 || caracteres.charCodeAt(i) == 97){
-            cifraCodificar[i] = caracteres.charCodeAt(i);
-            aux[i] = 0;
-        }else if(caracteres.charCodeAt(i) + parseInt(inc) > 90 && caracteres.charCodeAt(i) + parseInt(inc) < 99){
-            cifraCodificar[i] = caracteres.charCodeAt(i) - 1;
-            aux[i] = 1;
-        }else if(caracteres.charCodeAt(i) + parseInt(inc) > 122){
-            cifraCodificar[i] = caracteres.charCodeAt(i) - 1;
-            aux[i] = 1;
-        }else{
-            cifraCodificar.push(caracteres.charCodeAt(i) + parseInt(inc));
-            aux[i] = 0;
-        } 
+        cifraCodificar.push(caracteres.charCodeAt(i) + parseInt(novoIncremento)); 
+        if(caracteres.charCodeAt(i) + parseInt(novoIncremento)){
+            
+        }
     }
     return cifraCodificar;
 }
