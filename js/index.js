@@ -5,6 +5,8 @@ var radio2 = document.querySelector('#decod')
 var mensagem = document.querySelector('#mensagem')
 var iniciar = document.querySelector('#iniciar')
 var codificacao = document.querySelector('#codificacao')
+var mensagemOculta = document.querySelector('#mensagemOculta')
+
 var cifraCodificar = [];
 var codificandoCesar = '';
 var cifraDecodificar = [];
@@ -24,6 +26,11 @@ radio1.addEventListener('click', function (event) {
 radio2.addEventListener('click', function (event) {
    // event.preventDefault();
     mensagem.innerText = `Decodificar Mensagem!`;
+    mensagemOculta.innerHTML = `<label for="frase1">Digite a mensagem que deseja criptografar:</label>
+    <input type="text" id="frase1" value = "${codificandoCesar}">`
+    console.log(frase);
+    cifraDeCesar();
+        
 })
 
 iniciar.addEventListener('click', function (event) {
@@ -33,8 +40,7 @@ iniciar.addEventListener('click', function (event) {
         codificaCesar();
         codificacao.innerText = codificandoCesar;
     }else if(radio2.checked == true){
-        cifraDeCesar();
-        codificaCesar();
+        
         decodificaCesar();
         decodCesar()
         codificacao.innerText = decodificandoCesar;
