@@ -9,7 +9,6 @@ var mensagemOculta = document.querySelector('#mensagemOculta')
 var cifraCodificar = [];
 var codificandoCesar = '';
 var cifraDecodificar = [];
-var aux = [];
 var decodificandoCesar = '';
 
 function escolher(){
@@ -24,8 +23,8 @@ cod.addEventListener('click', function (event) {
 decod.addEventListener('click', function (event) {
    // event.preventDefault();
     mensagem.innerText = `Decodificar Mensagem!`;
-    mensagemOculta.innerHTML = `<label for="frase1">Digite a mensagem que deseja criptografar:</label>
-    <input type="text" id="frase1" value = "${codificandoCesar}">`
+    mensagemOculta.innerHTML = `<label for="frase">Digite a mensagem que deseja criptografar:</label>
+    <input type="text" id="frase" value = "${codificandoCesar}">`
     console.log(frase);
     cifraDeCesar();
         
@@ -109,20 +108,20 @@ function decodificaCesar(){
         var novoCaracter = caracteres.charCodeAt(i);
         var novoAscii = novoCaracter - parseInt(novoIncremento);
         if(novoCaracter >= 65 && novoCaracter <= 90){
-            if(novoAscii > 90){
-                var novoInc = 90 - novoCaracter;
-                novoAscii = 65 + novoInc;
-                cifraCodificar.push(novoAscii);
+            if(novoAscii < 65){
+                var novoInc = 65 - novoCaracter;
+                novoAscii = 90 - novoInc;
+                cifraDecodificar.push(novoAscii);
             }else{
-                cifraCodificar.push(novoAscii);
+                cifraDecodificar.push(novoAscii);
             }
         }else if(novoCaracter >= 97 && novoCaracter <= 122){
-            if(novoAscii > 122){
-                novoInc = 122 - novoCaracter;
-                novoAscii = 97 + novoInc;
-                cifraCodificar.push(novoAscii);
+            if(novoAscii < 97){
+                novoInc = 97 - novoCaracter;
+                novoAscii = 122 - novoInc;
+                cifraDecodificar.push(novoAscii);
             }else{
-                cifraCodificar.push(novoAscii);
+                cifraDecodificar.push(novoAscii);
             }
         }
     }
