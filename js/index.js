@@ -1,4 +1,3 @@
-var cifra = document.querySelector('#cifra')
 var incrementando = document.querySelector('#incrementando')
 var cod = document.querySelector('#cod')
 var decod = document.querySelector('#decod')
@@ -13,14 +12,9 @@ var cifraDecodificar = [];
 var aux = [];
 var decodificandoCesar = '';
 
-
-if (){
+function escolher(){
     incrementando.innerHTML = ` <label for="incremento">Digite o incremento para a Cifra de Cesar:</label><input type="number" id="incremento">`;
 }
-cifra.addEventListener('click', function (event) {
-    //event.preventDefault();
-    incrementando.innerHTML = ` <label for="incremento">Digite o incremento para a Cifra de Cesar:</label><input type="number" id="incremento">`;
-})
 
 cod.addEventListener('click', function (event) {
     //event.preventDefault();
@@ -39,11 +33,11 @@ decod.addEventListener('click', function (event) {
 
 iniciar.addEventListener('click', function (event) {
     event.preventDefault();
-    if(radio1.checked == true){
+    if(cod.checked == true){
         cifraDeCesar();
         codificaCesar();
         codificacao.innerText = codificandoCesar;
-    }else if(radio2.checked == true){
+    }else if(decod.checked == true){
         
         decodificaCesar();
         decodCesar()
@@ -99,12 +93,38 @@ function codificaCesar() {
 }
 
 function decodificaCesar(){
-   // var frase = document.querySelector('#frase')
+    var frase = document.querySelector('#frase')
     var incremento = document.querySelector('#incremento')
-   // var caracteres = frase.value;
+    var caracteres = frase.value;
     var inc = incremento.value;
-    for(var i = 0; i < cifraCodificar.length; i++){
-        cifraDecodificar.push(cifraCodificar[i] - parseInt(inc) + aux[i])
+    if(inc > 25 && inc != 26){
+        var novoIncremento = inc % 26;
+    }else if(inc == 26){
+        novoIncremento = 1;
+    }
+    else{
+        novoIncremento = inc;
+    }
+    for(var i = 0; i < caracteres.length; i++){
+        var novoCaracter = caracteres.charCodeAt(i);
+        var novoAscii = novoCaracter - parseInt(novoIncremento);
+        if(novoCaracter >= 65 && novoCaracter <= 90){
+            if(novoAscii > 90){
+                var novoInc = 90 - novoCaracter;
+                novoAscii = 65 + novoInc;
+                cifraCodificar.push(novoAscii);
+            }else{
+                cifraCodificar.push(novoAscii);
+            }
+        }else if(novoCaracter >= 97 && novoCaracter <= 122){
+            if(novoAscii > 122){
+                novoInc = 122 - novoCaracter;
+                novoAscii = 97 + novoInc;
+                cifraCodificar.push(novoAscii);
+            }else{
+                cifraCodificar.push(novoAscii);
+            }
+        }
     }
     return cifraDecodificar
 }
