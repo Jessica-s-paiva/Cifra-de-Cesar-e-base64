@@ -53,18 +53,27 @@ function cifraDeCesar(){
     var caracteres = frase.value;
     var incremento = document.querySelector('#incremento')
     var inc = incremento.value;
-    if(inc > 25){
+    if(inc > 25 && inc != s26){
         var novoIncremento = inc % 26;
+    }else if(inc == 26){
+        novoIncremento = 1;
     }
     else{
         novoIncremento = inc;
     }
     for(var i = 0; i < caracteres.length; i++) {
-        cifraCodificar.push(caracteres.charCodeAt(i) + parseInt(novoIncremento)); 
-        if(caracteres.charCodeAt(i) + parseInt(novoIncremento)){
-            
+        var novoAscii = caracteres.charCodeAt(i) + parseInt(novoIncremento);
+        
+        if(novoAscii > 90){
+            var novoInc = novoAscii - 90;
+            novoAscii = 65 + novoInc;
+            cifraCodificar.push(novoAscii);
+        }else{
+            cifraCodificar.push(novoAscii);
         }
     }
+    
+    console.log(cifraCodificar);
     return cifraCodificar;
 }
 
