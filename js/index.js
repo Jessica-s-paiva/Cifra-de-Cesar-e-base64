@@ -5,23 +5,27 @@ var mensagem = document.querySelector('#mensagem')
 var iniciar = document.querySelector('#iniciar')
 var codificacao = document.querySelector('#codificacao')
 var mensagemOculta = document.querySelector('#mensagemOculta')
-var opcoes = document.querySelector('#opcoes').value;
+var opcoes = document.querySelector('#opcoes')
 var cifraCodificar = [];
 var codificandoCesar = '';
 var cifraDecodificar = [];
 var decodificandoCesar = '';
 
-    if(opcoes.selectedIndex == 0){
-
-        incrementando.innerHTML = ` <label for="incremento">Digite o incremento para a Cifra de Cesar:</label><input type="number" id="incremento">`;
-    }
-
-opcoes.addEventListener("change", function () {
-    if (caixa.selectedIndex == 2 ) {
-
-opcao.addEventListener('change', function(event){
+opcoes.addEventListener("change", function (event) {
     event.preventDefault();
-    console.log('oie');
+    if (opcoes.selectedIndex == 1 ) {
+        incrementando.innerHTML = `<label for="incremento">Digite o incremento para a Cifra de Cesar:</label><input type="number" id="incremento">`;
+    }else if (opcoes.selectedIndex == 2){
+        if ( cod.checked == true) {
+            var retornoB = btoa(mensagem)
+            document.getElementById('texto').value = retornoB
+        } else {
+            var retornoA = atob(mensagem)
+            document.getElementById('texto').value = retornoA
+        
+        }
+        
+    }
 })
 
 cod.addEventListener('click', function (event) {
@@ -51,6 +55,7 @@ iniciar.addEventListener('click', function (event) {
         codificacao.innerText = decodificandoCesar;
         console.log(decodificandoCesar);
     }
+    
     
 })
 
