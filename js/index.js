@@ -5,15 +5,24 @@ var mensagem = document.querySelector('#mensagem')
 var iniciar = document.querySelector('#iniciar')
 var codificacao = document.querySelector('#codificacao')
 var mensagemOculta = document.querySelector('#mensagemOculta')
-
+var opcoes = document.querySelector('#opcoes').value;
 var cifraCodificar = [];
 var codificandoCesar = '';
 var cifraDecodificar = [];
 var decodificandoCesar = '';
 
-function escolher(){
-    incrementando.innerHTML = ` <label for="incremento">Digite o incremento para a Cifra de Cesar:</label><input type="number" id="incremento">`;
-}
+    if(opcoes.selectedIndex == 0){
+
+        incrementando.innerHTML = ` <label for="incremento">Digite o incremento para a Cifra de Cesar:</label><input type="number" id="incremento">`;
+    }
+
+opcoes.addEventListener("change", function () {
+    if (caixa.selectedIndex == 2 ) {
+
+opcao.addEventListener('change', function(event){
+    event.preventDefault();
+    console.log('oie');
+})
 
 cod.addEventListener('click', function (event) {
     //event.preventDefault();
@@ -37,10 +46,10 @@ iniciar.addEventListener('click', function (event) {
         codificaCesar();
         codificacao.innerText = codificandoCesar;
     }else if(decod.checked == true){
-        
         decodificaCesar();
         decodCesar()
         codificacao.innerText = decodificandoCesar;
+        console.log(decodificandoCesar);
     }
     
 })
