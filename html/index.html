@@ -22,18 +22,17 @@
                 <input type="text" id="frase">
             </div>
             
-            <label for="cifra"><input type="checkbox" id="cifra" name="escolha">
-            Cifra de Cesar</label>
-            <label for="base64"><input type="checkbox" id= "base64" name="escolha">
-            Base 64</label>
+            <label for="opcoes">Escolha o tipo de codificação:</label>
+            <select name="opcoes" id="opcoes">
+                <option value=""></option>
+                <option value="Cifra de Cesar" id="cifra">Cifra de Cesar</option>
+                <option value="Base 64" id="base64">Base 64</option>
+            </select>
     
             <div id="incrementando"></div> <!-- Lugar onde vai aparecer input para o incremento-->
-    
-            <label for="cod"><input type="radio" id= "cod" name="escolha-cod">
-            Codificar</label>
-            <label for="decod"><input type="radio" id= "decod" name="escolha-cod">
-            Decodificar</label>
 
+            <label for="cod"><input type="radio" id="cod" name="escolha">Codificar</label>
+            <label for="decod"><input type="radio" id="decod" name="escolha">Decodificar</label>
             <div id="mensagem"></div>
     
             <input type="submit" id="iniciar" value="Iniciar">
