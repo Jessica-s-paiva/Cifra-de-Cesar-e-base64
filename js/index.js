@@ -16,15 +16,7 @@ opcoes.addEventListener("change", function (event) {
     if (opcoes.selectedIndex == 1 ) {
         incrementando.innerHTML = `<label for="incremento">Digite o incremento para a Cifra de Cesar:</label><input type="number" id="incremento">`;
     }else if (opcoes.selectedIndex == 2){
-        if ( cod.checked == true) {
-            var retornoB = btoa(mensagem)
-            document.getElementById('texto').value = retornoB
-        } else {
-            var retornoA = atob(mensagem)
-            document.getElementById('texto').value = retornoA
-        
-        }
-        
+        var frase = document.querySelector('#frase').value;   
     }
 })
 
@@ -45,17 +37,24 @@ decod.addEventListener('click', function (event) {
 
 iniciar.addEventListener('click', function (event) {
     event.preventDefault();
-    if(cod.checked == true){
+    if(opcoes.selectedIndex == 1 && cod.checked == true){
         cifraDeCesar();
         codificaCesar();
         codificacao.innerText = codificandoCesar;
-    }else if(decod.checked == true){
+    }else if(opcoes.selectedIndex == 1 && decod.checked == true){
         decodificaCesar();
         decodCesar()
         codificacao.innerText = decodificandoCesar;
         console.log(decodificandoCesar);
+    }else if (opcoes.selectedIndex == 2 && cod.checked == true) {
+        var baseCod = btoa(frase)
+        var codificaBase = document.querySelector('#codificacao')
+        codificaBase.innerText = baseCod;
+    } else if(opcoes.selectedIndex == 2 && decod.checked == true ){
+        var baseDecod = atob(frase)
+        codificaBase = document.querySelector('#codificacao')
+        codificaBase.innerText = baseDecod;
     }
-    
     
 })
 

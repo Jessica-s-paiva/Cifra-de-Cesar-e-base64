@@ -17,23 +17,25 @@
 
     <main>
         <form>
-            <div id="mensagemOculta">
+            <section id="mensagemOculta">
                 <label for="frase">Digite a mensagem que deseja criptografar:</label>
                 <input type="text" id="frase">
-            </div>
-            
-            <label for="opcoes">Escolha o tipo de codificação:</label>
-            <select name="opcoes" id="opcoes">
-                <option value="0">Escolha o tipo de criptografia:</option>
-                <option value="1">Cifra de Cesar</option>
-                <option value="2">Base 64</option>
-            </select>
-    
-            <div id="incrementando"></div> <!-- Lugar onde vai aparecer input para o incremento-->
+            </section>
+            <section>
+                <label for="opcoes">Escolha o tipo de codificação:</label>
+                <select name="opcoes" id="opcoes">
+                    <option value="0">Escolha o tipo de criptografia:</option>
+                    <option value="1">Cifra de Cesar</option>
+                    <option value="2">Base 64</option>
+                </select>
 
-            <label for="cod"><input type="radio" id="cod" name="escolha">Codificar</label>
-            <label for="decod"><input type="radio" id="decod" name="escolha">Decodificar</label>
-            <div id="mensagem"></div>
+                <div id="incrementando"></div> <!-- Lugar onde vai aparecer input para o incremento-->
+            </section>
+            <section>
+                <label for="cod"><input type="radio" id="cod" name="escolha">Codificar</label>
+                <label for="decod"><input type="radio" id="decod" name="escolha">Decodificar</label>
+                <div id="mensagem"></div>
+            </section>
     
             <input type="submit" id="iniciar" value="Iniciar">
     
