@@ -28,30 +28,38 @@ cod.addEventListener('click', function (event) {
 decod.addEventListener('click', function (event) {
    // event.preventDefault();
     mensagem.innerText = `Decodificar Mensagem!`;
-    mensagemOculta.innerHTML = `<label for="frase">Digite a mensagem que deseja criptografar:</label>
-    <input type="text" id="frase" value = "${codificandoCesar}">`
-    console.log(frase);
-    cifraDeCesar();
-        
 })
 
 iniciar.addEventListener('click', function (event) {
     event.preventDefault();
+    var frase = document.querySelector('#frase').value;
+    var baseCod = window.btoa(frase);
+    var baseDecod = window.atob(baseCod);
     if(opcoes.selectedIndex == 1 && cod.checked == true){
         cifraDeCesar();
         codificaCesar();
         codificacao.innerText = codificandoCesar;
     }else if(opcoes.selectedIndex == 1 && decod.checked == true){
+        mensagemOculta.innerHTML = `<label for="frase">Digite a mensagem que deseja criptografar:</label>
+        <input type="text" id="frase" value = "${codificandoCesar}">`
+        console.log(frase);
         decodificaCesar();
         decodCesar()
+        //cifraDeCesar();
         codificacao.innerText = decodificandoCesar;
-        console.log(decodificandoCesar);
+        cifraCodificar = [];
+        decodificandoCesar = ''
+        console.log(codificandoCesar);
     }else if (opcoes.selectedIndex == 2 && cod.checked == true) {
-        var baseCod = btoa(frase)
+        console.log(baseCod);
+        console.log(baseDecod);
         var codificaBase = document.querySelector('#codificacao')
         codificaBase.innerText = baseCod;
+        
     } else if(opcoes.selectedIndex == 2 && decod.checked == true ){
-        var baseDecod = atob(frase)
+        mensagemOculta.innerHTML = `<label for="frase">Digite a mensagem que deseja criptografar:</label>
+        <input type="text" id="frase" value = "${baseCod}">`
+        console.log(baseDecod);
         codificaBase = document.querySelector('#codificacao')
         codificaBase.innerText = baseDecod;
     }
