@@ -3,6 +3,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'Orbitron', sans-serif;
 }
 
 main{
@@ -10,12 +11,27 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 18px;
     background-color: white;
-    opacity: 0.5;
+    opacity: 0.95;
     width: 70%;
     border-radius: 10px;
     padding: 20px;
+}
+
+.radios{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+div{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 form{
@@ -34,6 +50,13 @@ section{
     align-items: center;
 }
 
+input{
+    padding: 10px 100px;
+}
+
+#codificacao{
+    font-size: 30px;
+}
 #mensagemOculta{
     display: flex;
     flex-direction: column;
