@@ -132,7 +132,7 @@ function decodificaCesar(){
         var novoAscii = novoCaracter - parseInt(novoIncremento);
         if(novoCaracter == 32){
             novoAscii = 32;
-            cifraCodificar.push(novoAscii);
+            cifraDecodificar.push(novoAscii);
         }else if(novoCaracter >= 65 && novoCaracter <= 90){
             if(novoAscii < 65){
                 var novoInc = 65 - novoCaracter;
