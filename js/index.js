@@ -10,13 +10,12 @@ var cifraCodificar = [];
 var codificandoCesar = '';
 var cifraDecodificar = [];
 var decodificandoCesar = '';
+var textoCodificado = '';
 
 opcoes.addEventListener("change", function (event) {
     event.preventDefault();
     if (opcoes.selectedIndex == 1 ) {
         incrementando.innerHTML = `<label for="incremento">Digite o incremento para a Cifra de Cesar:</label><input type="number" id="incremento">`;
-    }else if (opcoes.selectedIndex == 2){
-        var frase = document.querySelector('#frase').value;   
     }
 })
 
@@ -38,18 +37,16 @@ iniciar.addEventListener('click', function (event) {
     if(opcoes.selectedIndex == 1 && cod.checked == true){
         cifraDeCesar();
         codificaCesar();
-        codificacao.innerText = codificandoCesar;
+        textoCodificado = codificandoCesar;
+        codificacao.innerText = textoCodificado; 
     }else if(opcoes.selectedIndex == 1 && decod.checked == true){
         mensagemOculta.innerHTML = `<label for="frase">Digite a mensagem que deseja criptografar:</label>
-        <input type="text" id="frase" value = "${codificandoCesar}">`
+        <input type="text" id="frase" value = "${textoCodificado}">`
         console.log(frase);
         decodificaCesar();
         decodCesar()
         //cifraDeCesar();
         codificacao.innerText = decodificandoCesar;
-        cifraCodificar = [];
-        decodificandoCesar = ''
-        console.log(codificandoCesar);
     }else if (opcoes.selectedIndex == 2 && cod.checked == true) {
         console.log(baseCod);
         console.log(baseDecod);
@@ -82,7 +79,10 @@ function cifraDeCesar(){
     for(var i = 0; i < caracteres.length; i++){
         var novoCaracter = caracteres.charCodeAt(i);
         var novoAscii = novoCaracter + parseInt(novoIncremento);
-        if(novoCaracter >= 65 && novoCaracter <= 90){
+        if(novoCaracter == 32){
+            novoAscii = 32;
+            cifraCodificar.push(novoAscii);
+        }else if(novoCaracter >= 65 && novoCaracter <= 90){
             if(novoAscii > 90){
                 var novoInc = 90 - novoCaracter;
                 novoAscii = 65 + novoInc;
@@ -106,9 +106,11 @@ function cifraDeCesar(){
 }
 
 function codificaCesar() {
+    codificandoCesar = ''
     for(var i = 0; i < cifraCodificar.length; i++) {
         codificandoCesar += String.fromCharCode(cifraCodificar[i])
     }
+    cifraCodificar = [];
     return codificandoCesar;
 }
 
@@ -128,7 +130,10 @@ function decodificaCesar(){
     for(var i = 0; i < caracteres.length; i++){
         var novoCaracter = caracteres.charCodeAt(i);
         var novoAscii = novoCaracter - parseInt(novoIncremento);
-        if(novoCaracter >= 65 && novoCaracter <= 90){
+        if(novoCaracter == 32){
+            novoAscii = 32;
+            cifraCodificar.push(novoAscii);
+        }else if(novoCaracter >= 65 && novoCaracter <= 90){
             if(novoAscii < 65){
                 var novoInc = 65 - novoCaracter;
                 novoAscii = 90 - novoInc;
@@ -150,8 +155,10 @@ function decodificaCesar(){
 }
 
 function decodCesar(){
+    decodificandoCesar = ''
     for (var i = 0; i < cifraDecodificar.length; i++){
         decodificandoCesar += String.fromCharCode(cifraDecodificar[i])
     }
+    cifraDecodificar = [];
     return decodificandoCesar
 }
